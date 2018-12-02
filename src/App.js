@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {opacity: 1.0};
+    axios.get('127.0.0.1:8088')
+  .then(function (response) {
+    console.log(response);
+    console.log(response.data);
+    console.log(response.status);
+    console.log(response.statusText);
+    console.log(response.headers);
+    console.log(response.config);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+}
+
   render() {
     return (
       <div className="App">
